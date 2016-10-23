@@ -56,20 +56,16 @@ $(document).ready(function () {
         });
     }
 
-    function toggleAll(event) {
-        if (this.value === "ADD ALL") {
-            event.data.items.forEach(function (item) {
-                if (!item.checked) {
-                    item.checked = true;
-                    select(item);
-                }
-            });
-        } else {
-            event.data.items.forEach(function (item) {
+	function toggleAll(event) {
+        event.data.items.forEach(function (item) {
+        	if (event.target.value === "ADD ALL" && !item.checked) {
+        		item.checked = true;
+				select(item);
+        	} else if (event.target.value === "REMOVE ALL") {
                 item.checked = false;
                 unSelect(item);
-            });
-        }
+        	}
+        });
         updateAddAllBtn(event.data.className);
         outputSelected();
     }
@@ -88,7 +84,7 @@ $(document).ready(function () {
 
         list.empty();
         selectedItems.forEach(function (item, i) {
-            li = '<li class="icon-result">' + item.title + '<br>' + item.subtext + '<input type="button" class="trash-bin">' + '</li>';
+            li = '<li class="icon-result">' + item.title + item.subtext + '<input type="button" class="trash-bin">' + '</li>';
             list.append(li);
 
             $($("li.icon-result")[i]).addClass(item.className);

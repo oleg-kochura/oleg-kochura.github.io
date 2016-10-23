@@ -212,7 +212,7 @@ input[type="email"]:focus {
     position: absolute;
     width: 17px;
     height: 17px;
-    top: 24px;
+    top: 13px;
     left: 0;
 }
 
@@ -222,7 +222,7 @@ input[type="email"]:focus {
 
 .trash-bin {
     float: right;
-    margin-top: -3px;
+    margin-top: 2px;
     width: 14px;
     height: 17px;
     background: transparent;
