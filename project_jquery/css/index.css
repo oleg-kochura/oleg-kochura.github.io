@@ -40,9 +40,7 @@ main {
 }
 
 .first-page,
-.second-page {
-    outline: none;
-}
+.second-page { outline: none; }
 
 .header h2 {
     position: absolute;
@@ -121,9 +119,7 @@ main {
     padding: 15px;
 }
 
-.btn-sm {
-    width: 100px;
-}
+.btn-sm { width: 100px; }
 
 .send-letter {
     width: 724px;
@@ -158,14 +154,14 @@ main {
     padding: 22px 35px 16px 35px;
 }
 
+input[type="text"],
+input[type="email"] { font-size: 16px; }
+
 input[type="text"]:focus,
 input[type="email"]:focus {
     outline: none;
     border-bottom: 2px solid #00b9e6;
 }
-
-input[type="text"],
-input[type="email"] { font-size: 16px; }
 
 .input-user-info { flex-basis: 304px; }
 
@@ -202,22 +198,12 @@ input[type="email"] { font-size: 16px; }
     border-bottom: 1px solid #e0dede;
 }
 
-.items-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
 .items-list li {
     position: relative;
     padding: 11px 0 12px 40px;
     border-bottom: 1px solid #c6c6c6;
     font-size: 14px;
 }
-
-.icon-result.documents,
-.icon-result.links,
-.icon-result.labs { position: relative; }
 
 .icon-result.documents:before,
 .icon-result.links:before,
@@ -226,7 +212,7 @@ input[type="email"] { font-size: 16px; }
     position: absolute;
     width: 17px;
     height: 17px;
-    top: 10px;
+    top: 24px;
     left: 0;
 }
 
@@ -241,7 +227,7 @@ input[type="email"] { font-size: 16px; }
     height: 17px;
     background: transparent;
     border: none;
-    background: url("../img/sprite.png") -38px -161px;
+    background: url("../img/sprite.png") no-repeat -38px -161px;
     cursor: pointer;
 }
 
