@@ -1,5 +1,6 @@
 $(document).ready(function () {
     var selectedItems = [];
+    
     data().objects.forEach(function (item, objIndex) {
         renderList(item, objIndex);
     });
@@ -79,15 +80,16 @@ $(document).ready(function () {
     }
 
     function outputSelected() {
-        var li,
-            list = $("#chosenItems");
+        var list = $("#chosenItems"),
+            li;
 
         list.empty();
         selectedItems.forEach(function (item, i) {
-            li = '<li class="icon-result">' + item.title + item.subtext + '<input type="button" class="trash-bin">' + '</li>';
-            list.append(li);
+            li = '<li class="icon-result ' + item.className + '">' + item.title + item.subtext + 
+                    '<input type="button" class="trash-bin">' + 
+                 '</li>';
 
-            $($("li.icon-result")[i]).addClass(item.className);
+            list.append(li);
             $($('.trash-bin')[i]).on('click', item, deleteLi);
         });
         $('.counter').html(selectedItems.length);
