@@ -56,10 +56,6 @@ main {
     padding: 50px 35px;
 }
 
-.documents .header { background: #db4437; }
-.links .header { background: #00b9e6; }
-.labs .header { background: #0f9d58; }
-
 .section {
     width: 300px;
     border: 1px solid #c6c6c6;
@@ -83,6 +79,10 @@ main {
     top: 43px;
     left: 115px;
 }
+
+.documents .header { background: #db4437; }
+.links .header { background: #00b9e6; }
+.labs .header { background: #0f9d58; }
 
 .documents .header::after { background:  url("../img/sprite.png") -2px -107px no-repeat; }
 .links .header::after { background:  url("../img/sprite.png") -2px -37px no-repeat; }

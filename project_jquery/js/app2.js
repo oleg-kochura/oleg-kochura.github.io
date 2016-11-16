@@ -1,46 +1,41 @@
 $(document).ready(function () {
-    var selectedItems = [];
-    
-    data().objects.forEach(function (item, objIndex) {
-        renderList(item, objIndex);
-    });
+    var selectedItems = [],
+        addAllButton = 'ADD ALL',
+        removeAllButton = 'REMOVE ALL',
+        container = $('#content'),
+        chosenItems = $("#chosenItems");
 
-    function renderList(obj, objIndex) {
-        var addAllBtn = $(".add-all")[objIndex],
-            list = $(".list-group")[objIndex],
-            li,
+    data().forEach(function (item) {
+        renderBlocks(item);
+    }); 
+
+    function renderBlocks(obj) {
+        container.append( blockTemplate(obj.headText, obj.className, addAllButton) );
+        renderList(obj);
+        $('.' + obj.className + ' .add-all').on("click", obj, toggleAll);
+    }
+
+    function renderList(obj)  {
+        var list = $('.' + obj.className + ' .list-group'),
             checkbox;
 
         obj.items.forEach(function (item, i) {
-            li = "<li class='list-item'>" +
-                    "<label>" +
-                        "<input type='checkbox' class='checkbox'>" +
-                        "<span class='item-title'>" + item.title + "</span><br>" +
-                        "<span>" + item.subtext + "</span>" +
-                    "</label>" +
-                 "</li>";
-
-            $(list).append(li);
-            item.index = i;
-            item.className = obj.className;
-            checkbox = $('.' + obj.className + ' ' + '.checkbox')[i];
-
+            item = addIndexAndClassToItem(item, i, obj.className);
+            list.append( itemTemplate(item) );
+            checkbox = $('.' + item.className + ' ' + '.checkbox')[i];
             $(checkbox).on("change", item, check);
-            bindModelInput(item,'checked', checkbox);
+            bindModelInput(item, 'checked', checkbox);
         });
-        $(addAllBtn).on("click", obj, toggleAll)
     }
 
-    function bindModelInput(obj, property, domElem) {
-        Object.defineProperty(obj, property, {
-            get: function() { return domElem.checked; },
-            set: function(newValue) { domElem.checked = newValue; },
-            configurable: true
-        });
+    function addIndexAndClassToItem(elementData, i, className) {
+        elementData.index = i;
+        elementData.className = className;
+        return elementData;
     }
 
     function check(event) {
-        event.target.checked ? select(event.data) : unSelect(event.data);
+        event.data.checked ? select(event.data) : unSelect(event.data);
         updateAddAllBtn(event.data.className);
         outputSelected();
     }
@@ -57,18 +52,26 @@ $(document).ready(function () {
         });
     }
 
-	function toggleAll(event) {
+    function toggleAll(event) {
         event.data.items.forEach(function (item) {
-        	if (event.target.value === "ADD ALL" && !item.checked) {
-        		item.checked = true;
-				select(item);
-        	} else if (event.target.value === "REMOVE ALL") {
+            if (checkAddAllStatus(event) && !item.checked) {
+                item.checked = true;
+                select(item);
+            } else if (!checkAddAllStatus(event)) {
                 item.checked = false;
                 unSelect(item);
-        	}
+            }
         });
         updateAddAllBtn(event.data.className);
         outputSelected();
+    }
+
+    function checkAddAllStatus(event) {
+        return event.target.value === addAllButton;
+    }
+
+    function counter() {
+        $('.counter').html(selectedItems.length);
     }
 
     function updateAddAllBtn(className) {
@@ -76,23 +79,16 @@ $(document).ready(function () {
             itemsLength = $('.' + className + ' input[type=checkbox]').length,
             button = $('.' + className + ' .add-all');
 
-        itemsLength === checkedLength ? button.val('REMOVE ALL') : button.val('ADD ALL');
+        itemsLength === checkedLength ? button.val(removeAllButton) : button.val(addAllButton);
     }
 
     function outputSelected() {
-        var list = $("#chosenItems"),
-            li;
-
-        list.empty();
+        chosenItems.empty();
         selectedItems.forEach(function (item, i) {
-            li = '<li class="icon-result ' + item.className + '">' + item.title + item.subtext + 
-                    '<input type="button" class="trash-bin">' + 
-                 '</li>';
-
-            list.append(li);
+            chosenItems.append( outputTemplate(item) );
             $($('.trash-bin')[i]).on('click', item, deleteLi);
         });
-        $('.counter').html(selectedItems.length);
+        counter();
     }
 
     function deleteLi(event) {
@@ -102,19 +98,24 @@ $(document).ready(function () {
         updateAddAllBtn(event.data.className);
     }
 
+    function bindModelInput(obj, property, domElem) {
+        Object.defineProperty(obj, property, {
+            get: function() { return domElem.checked; },
+            set: function(newValue) { domElem.checked = newValue; },
+            configurable: true
+        });
+    }
+
     function cleanForm() {
         selectedItems = [];
         $('.checkbox').prop('checked', false);
         $('#name').val('');
         $('#email').val('');
         $('#message').val('');
+        $('.add-all').val(addAllButton);
         $("#chosenItems").empty();
-        $('.counter').html(selectedItems.length);
-        $('.add-all').val('ADD ALL');
+        counter();
     }
-
-    $('#closeModal').on('click', cleanForm);
-    $('#closeModalWin').on('click', cleanForm);
 
     $('#send').on("click", function () {
         $('#modalName').html('Name: ' +  $('#name').val());
@@ -123,5 +124,8 @@ $(document).ready(function () {
         $('#modalCount').html('You send: ' + selectedItems.length + ' articles');
     });
 
+    $('#closeModal').on('click', cleanForm);
+    $('#closeModalWin').on('click', cleanForm);
     $('.carousel').slick({ arrows: false, dots: true, infinite: false });
+
 });
