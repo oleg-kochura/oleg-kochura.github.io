@@ -1,0 +1,159 @@
+@media only screen and (max-width : 1024px) {
+
+    body {
+        font-size: 75%;
+    }
+
+    .logo {
+        margin-left: 4%;
+    }
+
+    .main-nav {
+        margin: 0 2.5%;
+    }
+
+    .navigation {
+        justify-content: flex-start;
+        font-size: 120%;
+    }
+
+    .navigation li {
+        margin-left: 25px;
+    }
+
+    .title {
+        margin: 175px 0 165px 0;
+        width: 100%;
+        max-width: 700px;
+    }
+
+    .title:before {
+        content: none;
+    }
+
+    .subtext {
+        max-width: 700px;
+    }
+
+    .about figure {
+        max-width: 700px;
+    }
+
+    .about figure figcaption {
+        font-size: 1.75em;
+        margin: 0 10px;
+    }
+
+    .about figure img {
+        width: 55%;
+        height: auto;
+    }
+
+    .subtext.center {
+        padding: 50px 0;
+    }
+
+    .rhombes {
+        width: 500px;
+        height: 500px;
+        padding: 0;
+        background: none;
+    }
+    .rhombes div {
+        width: 150px;
+        height: 150px;
+        margin: 5px;
+    }
+
+    .rhombes div.rhomb-5 {
+        margin-right: 50px;
+    }
+
+    .rhombes div::before,
+    .rhombes div:hover::before {
+        top: 48px;
+        left: 32px;
+        background-size: 75%;
+    }
+
+    .rhombes p {
+        margin: 16px 0 0 -76px;
+    }
+
+    .rhombes-wrap {
+        margin: -50px 0 180px 0;
+    }
+
+    .demo .header-section {
+        margin-top: 30px;
+    }
+
+    .btn-group {
+        max-width: 900px;
+    }
+
+    .open-pop-up {
+        margin: 1%;
+        padding: 2%;
+        font-size: 1.5em;
+    }
+
+    .qr-code-img {
+        margin: 60px 0 50px 0;
+    }
+
+    .feedback-form input,
+    .feedback-form button {
+        font-size: 1.75em;
+    }
+
+    .location-map figure {
+        width: 54.27%;
+    }
+    .location-map figure figcaption {
+        top: 58px;
+        left: 211px;
+    }
+
+    form.request {
+        margin: 10px 4.24% 0 0;
+        width: 32.405%;
+    }
+
+    .request input[type="text"] {
+        padding: 8px 10px;
+    }
+
+    .soc-icons {
+        margin-top: 70px;
+    }
+
+
+        /*POPUP*/
+
+    dialog {
+        width: 100%;
+        max-width: 768px;
+    }
+
+
+    .pop-up {
+        margin-top: 7.25%;
+    }
+
+    .pop-up input {
+        padding: 10px;
+    }
+
+    .pop-up-lbl {
+        margin-top: 0;
+    }
+
+    .pop-up-lbl::after,
+    .form-right .agreement:checked ~ .pop-up-lbl::after {
+        background-size: 75%;
+        top: 0;
+        right: -80px;
+    }
+
+}
