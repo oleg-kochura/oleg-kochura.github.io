@@ -13,6 +13,3 @@ export function $on(event, element, callback) {
 export function qs(selector, scope) {
 	return (scope || document).querySelector(selector);
 }
-
-
-// export dispatcher

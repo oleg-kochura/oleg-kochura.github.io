@@ -8,17 +8,17 @@ import { qs } from './helpers'
 
 window.onload = function () {
 
-	let documentsEl = qs('.documents');
-	let linksEl = qs('.links');
-	let labsEl = qs('.labs');
-	let sendFormEl = qs('.send-letter');
+	const documentsEl = qs('.documents');
+	const linksEl = qs('.links');
+	const labsEl = qs('.labs');
+	const sendFormEl = qs('.send-letter');
 
-	let data = new Data().data;
-	let store = new Store();
-	let template = new Template();
+	const data = new Data().data;
+	const store = new Store(data);
+	const template = new Template();
 
-	let documents = new SelectionForm(data['documents'], documentsEl, template, store);
-	let links = new SelectionForm(data['links'], linksEl, template, store);
-	let labs = new SelectionForm(data['labs'], labsEl, template, store);
-	let sendForm = new SendForm(sendFormEl, template, store);
+	const documents = new SelectionForm(documentsEl, template, store);
+	const links = new SelectionForm(linksEl, template, store);
+	const labs = new SelectionForm(labsEl, template, store);
+	const sendForm = new SendForm(sendFormEl, template, store);
 };

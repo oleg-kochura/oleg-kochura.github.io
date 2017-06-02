@@ -1,4 +1,5 @@
 import { $on, qs } from './helpers'
+import { dispatcher } from './dispatcher'
 
 export default class SendForm {
 	constructor(element, template, store){
@@ -10,25 +11,27 @@ export default class SendForm {
 
 	init() {
 		this.domList = qs('.items-list', this.domElement);
-		$on('go', this.domElement, this.refresh.bind(this));
-		$on('click', this.domList, this.removeItem.bind(this))
+		$on('click', this.domList, this.removeItem.bind(this));
+		dispatcher.addListener('onToggle', this.refresh.bind(this));
 	}
 
 	refresh() {
-		this.domList.innerHTML = this.template.templateOutput(this.store.data);
+		this.domList.innerHTML = this.template.templateOutput(this.store.selected);
 		this.counter();
 	}
 
 	removeItem(event) {
-		if (event.target.tagName ===  "INPUT") {             //check if we click on trash-bin button
+		if (event.target.tagName ===  "INPUT") {
 			let i = +event.target.parentNode.dataset.index;
 
-			this.store.remove(this.store.data[i]);
+			dispatcher.dispatch('onDelete', this.store.selected[i]);
+
+			this.store.remove(this.store.selected[i]);
 			this.refresh();
 		}
 	}
 
 	counter() {
-		qs('.counter', this.domElement).innerHTML = this.store.data.length;
+		qs('.counter', this.domElement).innerHTML = this.store.selected.length;
 	}
 }
