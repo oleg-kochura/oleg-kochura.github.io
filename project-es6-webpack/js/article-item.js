@@ -1,6 +1,6 @@
-export default class ArticleItem {
+export class ArticleItem {
 	constructor(data, index, type){
-		this.selected = data;
+		this.data = data;
 		this.id = index;
 		this.checked = false;
 		this.type = type;

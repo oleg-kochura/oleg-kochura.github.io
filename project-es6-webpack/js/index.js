@@ -1,8 +1,8 @@
-import Data from './data';
-import Store from './store';
-import SelectionForm from './selection-form';
-import SendForm from './send-form';
-import Template from  './template';
+import { Data } from './data';
+import { Store } from './store';
+import { SelectionForm } from './selection-form';
+import { SendForm } from './send-form';
+import { Template } from  './template';
 import { qs } from './helpers'
 
 

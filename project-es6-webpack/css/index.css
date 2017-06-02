@@ -1,8 +1,13 @@
 body {
     margin: 0 auto;
-    width: 1024px;
-    height: 768px;
     font-size: 12px;
+}
+
+.forms-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 1024px;
 }
 
 ul,li,p,h1,h2,h3,h4,h5,h6 {
@@ -91,7 +96,7 @@ main {
 .labs .header::after { background:  url("../img/sprite.png") -2px -72px no-repeat; }
 
 .list {
-    height: 375px;
+    height: 413px;
     padding: 20px 0;
     overflow: auto;
     border-bottom: 1px solid #e0dede;
@@ -118,7 +123,7 @@ main {
 .bottom {
     display: flex;
     justify-content: flex-end;
-    padding: 15px;
+    padding: 19px;
 }
 
 .btn-sm {
@@ -127,7 +132,8 @@ main {
 
 .send-letter {
     width: 724px;
-    margin: 20px auto 0 auto;
+    margin-right: 50px;
+
     background: #fff;
     border: 1px solid #e5e5e5;
     border-radius: 4px;
@@ -151,42 +157,8 @@ main {
     background: url("../img/sprite.png") -2px -0px no-repeat;
 }
 
-.form-group {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 22px 35px 16px 35px;
-}
-
-input[type="text"]:focus,
-input[type="email"]:focus {
-    outline: none;
-    border-bottom: 2px solid #00b9e6;
-}
-
-input[type="text"],
-input[type="email"] { font-size: 16px; }
-
-.input-user-info { flex-basis: 304px; }
-
-.label-for-user {
-    font-size: 12px;
-    color: #d7d7d7;
-}
-
-.user-info {
-    width: 100%;
-    padding: 6px 0;
-    border: none;
-    border-bottom: 2px solid #d7d7d7;
-}
-
-.message-text {
-    flex-basis: 100%;
-    margin-top: 25px;
-    padding: 7px 0;
-    border: none;
-    border-bottom: 2px solid #d7d7d7;
+.send-form {
+    height: 100%;
 }
 
 .links-counter {
@@ -196,7 +168,8 @@ input[type="email"] { font-size: 16px; }
 }
 
 .letter-items {
-    height: 196px;
+    height: auto;
+    max-height: 400px;
     padding: 0 34px;
     overflow: auto;
     border-bottom: 1px solid #e0dede;
@@ -257,7 +230,7 @@ input[type="email"] { font-size: 16px; }
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-thumb { max-height: 50px; }
 
-.documents.section ::-webkit-scrollbar-thumb { background: #db4437; }
+.documents.section ::-webkit-scrollbar-thumb {background: #db4437;}
 .links.section ::-webkit-scrollbar-thumb { background: #00b9e6; }
 .labs.section ::-webkit-scrollbar-thumb { background: #0f9d58; }
 .send-letter ::-webkit-scrollbar-thumb { background: #00b9e6; }

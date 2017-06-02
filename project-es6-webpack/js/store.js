@@ -1,7 +1,21 @@
-export default class Store {
+import { ArticleItem } from './article-item';
+
+export class Store {
 	constructor(data) {
-		this.data = data;
+		this.data = this.getData(data);
 		this.selected = [];
+	}
+
+	getData(data) {
+		let transformedData = {};
+
+		Object.keys(data).forEach((key) => {
+			transformedData[key] = data[key].items.map( (item, index) => {
+				return new ArticleItem(item, index, key)
+			});
+		});
+
+		return transformedData;
 	}
 
 	add(data) {
@@ -13,6 +27,29 @@ export default class Store {
 
 		if(index !== undefined && index !== -1) {
 			this.selected.splice(index, 1);
+			this.data[data.type][data.id].checked = false;
 		}
 	}
+
+	toggleItem(index, key) {
+		this.data[key][index].checked
+			? this.add(this.data[key][index])
+			: this.remove(this.data[key][index]);
+	}
+
+	toggleAll(key) {
+		let state = this.itemsState(key);
+
+		this.data[key]
+			.filter((item) => item.checked === state)
+			.forEach((item) => {
+				item.checked = !item.checked;
+				state ? this.remove(item) : this.add(item);
+			});
+	}
+
+	itemsState(key) {
+		return this.data[key].every(item => item.checked);
+	}
+
 }

@@ -1,7 +1,7 @@
 import { $on, qs } from './helpers'
 import { dispatcher } from './dispatcher'
 
-export default class SendForm {
+export class SendForm {
 	constructor(element, template, store){
 		this.domElement  = element;
 		this.template = template;
@@ -24,9 +24,9 @@ export default class SendForm {
 		if (event.target.tagName ===  "INPUT") {
 			let i = +event.target.parentNode.dataset.index;
 
-			dispatcher.dispatch('onDelete', this.store.selected[i]);
-
 			this.store.remove(this.store.selected[i]);
+
+			dispatcher.dispatch('onDelete');
 			this.refresh();
 		}
 	}
