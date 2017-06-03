@@ -1,5 +1,5 @@
 export class Template {
-	template(items) {
+	inputTmpl(items) {
 		return	items.reduce((prev, curr) => prev +
 					`<li class="list-item">
 						<label>
@@ -10,7 +10,7 @@ export class Template {
 					</li>`, '');
 	}
 
-	templateOutput(items) {
+	outputTmpl(items) {
 		return	items.reduce((prev, curr, index) => prev +
 					`<li class="icon-result" data-index="${index}" data-type="${curr.type}">${curr.data.title} - ${curr.data.subtext}
 						<input type="button" class="trash-bin" tabindex="0">

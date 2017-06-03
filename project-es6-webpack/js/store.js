@@ -10,8 +10,8 @@ export class Store {
 		let transformedData = {};
 
 		Object.keys(data).forEach((key) => {
-			transformedData[key] = data[key].items.map( (item, index) => {
-				return new ArticleItem(item, index, key)
+			transformedData[key] = data[key].items.map( (item, i) => {
+				return new ArticleItem(item, i, key)
 			});
 		});
 
@@ -31,10 +31,10 @@ export class Store {
 		}
 	}
 
-	toggleItem(index, key) {
-		this.data[key][index].checked
-			? this.add(this.data[key][index])
-			: this.remove(this.data[key][index]);
+	toggleItem(i, key) {
+		this.data[key][i].checked
+			? this.add(this.data[key][i])
+			: this.remove(this.data[key][i]);
 	}
 
 	toggleAll(key) {

@@ -23,7 +23,7 @@ export class SelectionForm {
 	}
 
 	render() {
-		qs('.list-group', this.domElement).innerHTML = this.template.template(this.items);
+		qs('.list-group', this.domElement).innerHTML = this.template.inputTmpl(this.items);
 	}
 
 	handleEvents() {
