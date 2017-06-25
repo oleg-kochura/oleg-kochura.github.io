@@ -7,6 +7,11 @@ Portfolio
 
 ---
 
+* [TODO-list using Angular 2(4)](https://oleg-kochura.github.io/TODO-angular2/)     
+**[Repository](https://github.com/oleg-kochura/TODO-angular2)**
+
+---
+
 * [Selection form (JQuery) - my first implementation of this project](https://oleg-kochura.github.io/project_jquery)     
 **[Repository](https://github.com/oleg-kochura/oleg-kochura.github.io/tree/master/project_jquery)**
 
