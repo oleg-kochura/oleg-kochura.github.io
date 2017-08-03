@@ -2,6 +2,12 @@ Portfolio
 =========
 ### My simple projects:
 
+
+* [React-address-book](https://oleg-kochura.github.io/Address-book)     
+**[Repository](https://github.com/oleg-kochura/Address-book)**
+
+---
+
 * [Gallery of pictures using Flickr.com and it's API (Angular 2-4, Angular-CLI)](https://oleg-kochura.github.io/Gallery)     
 **[Repository](https://github.com/oleg-kochura/Gallery)**
 
