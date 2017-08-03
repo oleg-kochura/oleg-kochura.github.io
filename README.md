@@ -3,7 +3,7 @@ Portfolio
 ### My simple projects:
 
 
-* [React-address-book](https://oleg-kochura.github.io/Address-book)     
+* [React-address-book (React & Redux)](https://oleg-kochura.github.io/Address-book)     
 **[Repository](https://github.com/oleg-kochura/Address-book)**
 
 ---
