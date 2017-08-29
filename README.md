@@ -2,7 +2,7 @@ Portfolio
 =========
 ### My simple projects:
 
-* [Github-issues (React & Redux)](https://oleg-kochura.github.io/github-issues)     
+* [Application for watching issues of user's repository on Github (React & Redux)](https://oleg-kochura.github.io/github-issues)     
 **[Repository](https://github.com/oleg-kochura/github-issues)**
 
 ---
