@@ -2,6 +2,10 @@ Portfolio
 =========
 ### My simple projects:
 
+* [Github-issues (React & Redux)](https://oleg-kochura.github.io/github-issues)     
+**[Repository](https://github.com/oleg-kochura/github-issues)**
+
+---
 
 * [React-address-book (React & Redux)](https://oleg-kochura.github.io/Address-book)     
 **[Repository](https://github.com/oleg-kochura/Address-book)**
