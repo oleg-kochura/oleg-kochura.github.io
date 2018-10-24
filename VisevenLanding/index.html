@@ -7,6 +7,18 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/tablet.css" media="screen and (max-width: 1024px)" />
     <link rel="stylesheet" href="css/smartphone.css" media="screen and (max-width: 768px)" />
+
+    <script src="//fast.appcues.com/41589.js"></script>
+
+    // NOTE: These values should be specific to the current user.
+    <script>
+      Appcues.identify(<<INSERT_YOUR_UNIQUE_USER_ID_HERE>>, { // Replace with unique identifier for current user
+        name: "Oleg Kochura",   // Current user's name
+        email: "oleg.kochura@agilenix.com", // Current user's email
+        created_at: 1234567890,    // Unix timestamp of user signup date
+      });
+    </script>
+
 </head>
 <body>
     <div class="wrapper">
@@ -284,7 +296,9 @@
     </div>
 
     <script>var HS_PROJECT_ID = "cjnem9pwh4igq0951xtxtvxc1";</script>
-    <script src="https://dev.hintsystem.com/injector/m.js"></script>
+    <script src="http://localhost:3000/injector/m.js"></script>
+
+    <!--<script src="https://dev.hintsystem.com/injector/m.js"></script>-->
     <script type="text/javascript" src="js/jquery-3.0.0.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
 </body>
